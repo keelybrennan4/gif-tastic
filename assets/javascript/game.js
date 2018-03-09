@@ -1,6 +1,6 @@
 // 1. global variables 
 var topics = ["Happy", "Annoyed", "Excited", "Amused", "Content", "Cranky", "Stressed", "Relaxed", "Nervous", "Defeated", "Uncertain", "Hopeful", "Impatient", "Paranoid", "Awesome", "Accomplished"];
-gif = "";
+//gif = "";
 // 2. create buttons in HTML by using a loop that appends a button for each string in the array
 function renderButtons() {
     $("#moods-view").empty();
@@ -21,7 +21,7 @@ function renderButtons() {
     // call function render buttons 
     renderButtons();
     });
-
+    
     // Calling the renderButtons function at least once to display the initial buttons
     renderButtons();
 
@@ -31,7 +31,7 @@ $("button").on("click", function() {
     console.log(x);
     var queryURL = "https://api.giphy.com/v1/gifs/search?q="+x+"&api_key=on0VHNWeZ9CD3439RIQId67SGJH7LLh7&limit=10";
     $.ajax({url: queryURL,method:"GET"})
-        .done(function(response){
+        .then(function(response){
         var results = response.data;
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
@@ -44,7 +44,6 @@ $("button").on("click", function() {
                 var gifObj = response.data[i];
                 var gif = gifObj.images;
                 
-                //topicImage.attr("src", response.data[i].images.fixed_height.url);
                     topicImage.attr({
                         src: gif.fixed_height_still.url,
                         "data-animate": gif.fixed_height.url,
@@ -54,10 +53,12 @@ $("button").on("click", function() {
                     });
 
                 // gifs should change from still to animated when clicked, back to animated when clicked again. 
-                $(".gif").on("click", function() {
+                $(topicImage).on("click", function() {
                     var state = $(this).attr("data-state");
+                    console.log(state);
                     if (state === "still") {
                       $(this).attr("src", $(this).attr("data-animate"));
+                      console.log($(this));
                       $(this).attr("data-state", "animate");
                     } else {
                       $(this).attr("src", $(this).attr("data-still"));
