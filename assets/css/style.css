@@ -1,0 +1,38 @@
+.gif{
+    display: inline;
+}
+
+body{
+    color: black;
+    font-size: 16px;
+    line-height: 150%;
+    background-image: url("../images/halftone-yellow.png");
+}
+h1{
+    font-family: 'Fascinate Inline', cursive;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 400%;
+}
+.mood{
+    margin: 3px;
+    padding: 5px;
+    background-color:black;
+    color: white;
+    
+}
+#add-mood{
+    background-color:black;
+    color: white;
+}
+
+
+p{
+    font-family: 'Lato', sans-serif;
+}
+
+#mood-input{
+    padding: 5px;
+    margin-bottom: 5px;
+}

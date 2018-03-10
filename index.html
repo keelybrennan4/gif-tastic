@@ -6,26 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GifTastic</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Lato" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head>
 </head>
 <body>
     <div class="container">
-        <h1>GifTastic</h1>
+        <h1>Giphy Mood Generator</h1>
+        <p>Click a mood button, or add an additional mood. Click on the still image results for lots of funny gifs!</p>
         <div class="row">
-            <div class=col 12>
-                <form id="mood-form">
-                    <label for="mood-input">How are you feeling?</label><input type="text" id="mood-input"><br>
-                    <input id="add-mood" type="submit" value="Add A Mood">
-                </form>
+            <div class="col-8">
+                <div id="moods-view"></div>
                 <br><br>
-                    <div id="moods-view"></div>
-                    <br><br>
-                    <div id="gif-area"></div>
-                </div>
-            </div>    
-         </div>
+                <div id="gif-area"></div>
+            </div> 
+            
+            <div class="col-4">
+                <form id="mood-form">
+                    <label for="mood-input">Don't see your mood? Add another!</label><input type="text" id="mood-input"><br>
+                    <input id="add-mood" type="submit" value="Submit">
+                </form>
+                </div>   
+            </div>
     </div>  
     
     <script src="./assets/javascript/game.js"></script>

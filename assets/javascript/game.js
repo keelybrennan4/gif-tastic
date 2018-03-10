@@ -1,5 +1,5 @@
 // 1. global variables 
-var topics = ["Happy", "Annoyed", "Excited", "Amused", "Content", "Cranky", "Stressed", "Relaxed", "Nervous", "Defeated", "Uncertain", "Hopeful", "Impatient", "Paranoid", "Awesome", "Accomplished"];
+var topics = ["Happy", "Annoyed", "Excited", "Amused", "Content", "Cranky", "Stressed", "Relaxed", "Nervous", "Defeated", "Hopeful", "Impatient", "Paranoid", "Awesome", "Accomplished"];
 
 // 2. create buttons in HTML by using a loop that appends a button for each string in the array
 function renderButtons() {
