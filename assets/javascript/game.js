@@ -12,30 +12,31 @@ function renderButtons() {
         $("#moods-view").append(newButton);
     }
 }
+// call function render buttons to display initial topics array
+renderButtons();
 
-    $("#add-mood").on("click", function(event) {
-        event.preventDefault();
-
-        // grab the text from the input box and trim any extra spaces, then adds to the topics array 
-        var topic = $("#mood-input").val().trim();
-        topics.push(topic)
-        console.log(topic);
-
-    // call function render buttons 
+//
+$("#add-mood").on("click", function() {
+    event.preventDefault();
+    // grab the text from the input box and trim any extra spaces, then adds to the topics array 
+    var topic = $("#mood-input").val().trim();
+    topics.push(topic)
+    console.log(topic);
     renderButtons();
-   
-    // Calling the renderButtons function at least once to display the initial buttons
-    renderButtons();
+})
 
 //3. When the user clicks on of the mood buttons grab 10 static gifs from giphy api and places on page
-$("button").on("click", function() {
+    $(document).on("click", "button", function() {
     var x = $(this).data("name");
+        console.log($(this));
     var queryURL = "https://api.giphy.com/v1/gifs/search?q="+x+"&api_key=on0VHNWeZ9CD3439RIQId67SGJH7LLh7&limit=10";
-    $.ajax({url: queryURL,method:"GET"})
-        .then(function(response){
-        
-            var results = response.data;
-           
+    $.ajax({url: queryURL,
+        method:"GET"
+    })
+    .then(function(response){
+    console.log(response);
+        var results = response.data;
+               
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
                 var p = $("<p>").text("Rating: " +results[i].rating);
@@ -54,8 +55,8 @@ $("button").on("click", function() {
                     "data-still" : gif.fixed_height_still.url,
                     "data-state": "still", 
                     class: "gif",
-            });
-
+                });
+               
                 // gifs should change from still to animated when clicked, back to animated when clicked again. 
                 $(topicImage).on("click", function() {
                     var state = $(this).attr("data-state");
@@ -66,10 +67,7 @@ $("button").on("click", function() {
                       $(this).attr("src", $(this).attr("data-still"));
                       $(this).attr("data-state", "still");
                     }
-                });
-    
-        };
+                });   
+            };
     })
-});
-
 });
